@@ -1,0 +1,14 @@
+<div>
+  <h2>Ticket Panel</h2>
+  <div class="ticketPanel">
+    <div class="ticketListContainer">
+      @for(ticket of filteredTickets();track ticket.id){
+      <app-ticket [ticket]="ticket" (ticketOutput)="selectedTicket()" />
+      }
+    </div>
+    <app-ticket-details
+      *ngIf="isDetailsShown()"
+      [selectedTicket]="selectedTicket()"
+    />
+  </div>
+</div>
